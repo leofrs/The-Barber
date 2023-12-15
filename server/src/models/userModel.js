@@ -5,6 +5,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: [true, "name é obrigatorio"],
   },
+  apelido: {
+    type: String,
+    required: [true, "apelido é obrigatorio"],
+  },
   email: {
     type: String,
     required: [true, "email é obrigatorio"],
@@ -14,10 +18,6 @@ const userSchema = new mongoose.Schema({
     required: [true, "password é obrigatorio"],
   },
   isAdmin: {
-    type: Boolean,
-    default: false,
-  },
-  isDoctor: {
     type: Boolean,
     default: false,
   },

@@ -6,7 +6,7 @@ import connectDB from "./database/db.js";
 import cors from "cors";
 
 import { routerUser } from "./routes/userRoutes.js";
-
+import { routerAdmin } from "./routes/adminRoutes.js";
 dotenv.config();
 
 connectDB();
@@ -23,7 +23,7 @@ app.use(
 );
 
 app.use("/api/user", routerUser);
-//app.use("/api/admin", require("./routes/adminRoutes.js"));
+app.use("/api/admin", routerAdmin);
 
 app.get("/api/admin", (rep, res) => {
   res.status(200).send("Servidor rodando da porta 8080 parte do adminRoutes");
