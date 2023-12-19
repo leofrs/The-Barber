@@ -2,6 +2,8 @@ import { Form, Input, message } from "antd";
 
 import { Link, useNavigate } from "react-router-dom";
 
+import Logo from "../assets/logo.png";
+
 import axios from "axios";
 
 import { useDispatch } from "react-redux";
@@ -32,6 +34,7 @@ const Login = () => {
   };
   return (
     <>
+      <img src={Logo} alt="" className=" w-full" />
       <div className="flex fle-col items-center justify-center">
         <Form
           layout="vertical"
@@ -40,7 +43,7 @@ const Login = () => {
         >
           <Form.Item
             label={
-              <span style={{ color: "#ffffff" }} htmlFor="password">
+              <span style={{ color: "#FFEFC7" }} htmlFor="password">
                 Email
               </span>
             }
@@ -55,7 +58,7 @@ const Login = () => {
           </Form.Item>
           <Form.Item
             label={
-              <span style={{ color: "#ffffff" }} htmlFor="password">
+              <span style={{ color: "#FFEFC7" }} htmlFor="password">
                 Senha
               </span>
             }
@@ -68,12 +71,14 @@ const Login = () => {
               className="border border-[#FFEFC7] rounded-md"
             />
           </Form.Item>
-          <Link to="/register">
-            <p>
-              Não tem uma conta?{" "}
-              <span className="text-blue-400">Cadastre-se</span>
-            </p>
-          </Link>
+
+          <p className="text-white cursor-default">
+            Não tem uma conta?{" "}
+            <Link to="/register">
+              <span className="text-[#FFEFC7]">Cadastre-se</span>
+            </Link>
+          </p>
+
           <button type="submit" className="text-white border rounded-md p-3">
             Login
           </button>

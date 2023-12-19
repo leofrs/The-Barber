@@ -1,4 +1,5 @@
 import userModel from "../models/userModel.js";
+import agendaModel from "../models/agendaModel.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
@@ -79,5 +80,31 @@ export const authController = async (req, res) => {
     res
       .status(500)
       .send({ message: "Autorização falhou", success: false, error });
+  }
+};
+
+export const getAllAgendaController = async (req, res) => {
+  try {
+    const resUsers = await agendaModel.find({});
+
+    if (!resUsers || resUsers.length === 0) {
+      return res.status(404).send({
+        success: false,
+        message: "Nenhum dado cadastrado",
+      });
+    }
+
+    res.status(200).send({
+      success: true,
+      message: "Dados cadastrados encontrados",
+      data: resUsers,
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send({
+      success: false,
+      message: "Erro ao buscar os dados",
+      error: error.message,
+    });
   }
 };

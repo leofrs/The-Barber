@@ -2,6 +2,8 @@ import { Form, Input, message } from "antd";
 
 import { Link, useNavigate } from "react-router-dom";
 
+import Logo from "../assets/logo.png";
+
 import axios from "axios";
 
 import { useDispatch } from "react-redux";
@@ -33,6 +35,7 @@ const Register = () => {
   };
   return (
     <>
+      <img src={Logo} alt="" className=" w-full h-[300px]" />
       <div className="flex fle-col items-center justify-center">
         <Form
           layout="vertical"
@@ -41,7 +44,7 @@ const Register = () => {
         >
           <Form.Item
             label={
-              <span style={{ color: "#ffffff" }} htmlFor="password">
+              <span style={{ color: "#FFEFC7" }} htmlFor="password">
                 Nome
               </span>
             }
@@ -56,7 +59,22 @@ const Register = () => {
           </Form.Item>
           <Form.Item
             label={
-              <span style={{ color: "#ffffff" }} htmlFor="password">
+              <span style={{ color: "#FFEFC7" }} htmlFor="password">
+                Apelido
+              </span>
+            }
+            name="apelido"
+            rules={[{ required: true }]}
+          >
+            <Input
+              type="text"
+              required
+              className="border border-[#FFEFC7] rounded-md"
+            />
+          </Form.Item>
+          <Form.Item
+            label={
+              <span style={{ color: "#FFEFC7" }} htmlFor="password">
                 Email
               </span>
             }
@@ -71,7 +89,7 @@ const Register = () => {
           </Form.Item>
           <Form.Item
             label={
-              <span style={{ color: "#ffffff" }} htmlFor="password">
+              <span style={{ color: "#FFEFC7" }} htmlFor="password">
                 Senha
               </span>
             }
@@ -84,11 +102,12 @@ const Register = () => {
               className="border border-[#FFEFC7] rounded-md"
             />
           </Form.Item>
-          <Link to="/">
-            <p>
-              Já tem uma conta? <span className="text-blue-400">Login</span>
-            </p>
-          </Link>
+          <p className="text-white cursor-default">
+            Já tem uma conta?{" "}
+            <Link to="/login">
+              <span className="text-[#FFEFC7]">Login</span>
+            </Link>
+          </p>
           <button type="submit" className="text-white border rounded-md p-3">
             Cadastre-se
           </button>

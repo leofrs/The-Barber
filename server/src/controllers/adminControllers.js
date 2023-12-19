@@ -2,7 +2,6 @@ import userModel from "../models/userModel.js";
 
 export const getAllUserController = async (req, res) => {
   try {
-    console.log("ola mundo");
     const resUsers = await userModel.find({});
 
     if (!resUsers || resUsers.length === 0) {
